@@ -3,18 +3,16 @@ import mysql.connector
 
 def connect_db():
     try:
-        connection = mysql.connector.connect(
+        conn = mysql.connector.connect(
             host="localhost",
             user="root",
             password="",
             database="alx_book_store"
         )
-        return connection
-
-    except mysql.connector.Error as err:
+        return conn
+    except mysql.connector.Error:
         return None
 
 
 if __name__ == "__main__":
-    # Do not force a database connection during ALX checks
     pass
