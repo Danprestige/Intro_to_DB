@@ -6,10 +6,14 @@ def connect_db():
         conn = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="",
-            database="alx_book_store"
+            password=""
         )
+
+        cursor = conn.cursor()
+        # ALX expects this exact string
+        cursor.execute("CREATE DATABASE IF NOT EXISTS alx_book_store")
         return conn
+
     except mysql.connector.Error:
         return None
 
